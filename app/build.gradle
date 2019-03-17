@@ -13,9 +13,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        buildConfigField "String", "OWM_APP_ID_KEY", "\"appid\""
-        buildConfigField "String", "OWM_APP_ID_VALUE", "\"cc8bf0ef9fefd3794a362f69e9b0721d\""
     }
     buildTypes {
         release {
