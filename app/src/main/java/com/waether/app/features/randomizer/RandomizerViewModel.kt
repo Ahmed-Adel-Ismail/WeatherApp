@@ -6,7 +6,7 @@ import android.arch.lifecycle.ViewModel
 import com.weather.usecases.Ticker
 import com.weather.usecases.numberIncrementer
 
-private const val DEFAULT_VALUE = 0
+const val DEFAULT_VALUE = 0
 
 class RandomizerViewModel : ViewModel() {
 
@@ -20,7 +20,4 @@ class RandomizerViewModel : ViewModel() {
         numberIncrementer(numberLiveData)
     }
 
-    override fun onCleared() {
-        super.onCleared()
-    }
 }
