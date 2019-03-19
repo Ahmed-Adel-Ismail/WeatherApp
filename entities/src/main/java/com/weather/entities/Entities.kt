@@ -6,11 +6,8 @@ import android.support.annotation.NonNull
 import com.google.gson.annotations.SerializedName
 
 
-data class ForecastsResponse(
-    @field:SerializedName("city") val city: City?,
-    @field:SerializedName("cnt") val count: Long?,
-    @field:SerializedName("list") val forecasts: List<Forecast>?
-)
+@Entity
+data class FavoriteCityId(@field:PrimaryKey val id: Long)
 
 @Entity
 data class City(
@@ -19,15 +16,22 @@ data class City(
     @field:SerializedName("name") val name: String?,
     @field:SerializedName("country") val country: String?,
     @field:SerializedName("coord") val coordinates: Coordinates?
-) 
+)
+
+data class ForecastsResponse(
+    @field:SerializedName("city") val city: City?,
+    @field:SerializedName("cnt") val count: Long?,
+    @field:SerializedName("list") val forecasts: List<Forecast>?
+)
+
+
 
 data class Coordinates(
     @field:SerializedName("lat") val latitude: Double?,
     @field:SerializedName("lon") val longitude: Double?
 )
 
-@Entity
-data class FavoriteCityId(@field:PrimaryKey val id: Long)
+
 
 data class Forecast(
     @field:SerializedName("clouds") val clouds: Clouds?,
