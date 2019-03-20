@@ -8,7 +8,9 @@ import com.weather.usecases.numberIncrementer
 
 const val DEFAULT_VALUE = 0
 
-class RandomizerViewModel : ViewModel() {
+class RandomizerViewModel(
+    val useCase : (MutableLiveData<Int>) -> Unit = { numberLiveData ->  numberIncrementer(numberLiveData)}
+) : ViewModel() {
 
     val numberLiveData = MutableLiveData<Int>()
 
@@ -17,7 +19,7 @@ class RandomizerViewModel : ViewModel() {
     }
 
     fun incrementNumber(){
-        numberIncrementer(numberLiveData)
+        useCase(numberLiveData)
     }
 
 }
