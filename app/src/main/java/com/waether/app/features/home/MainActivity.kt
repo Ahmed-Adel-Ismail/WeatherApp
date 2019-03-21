@@ -6,4 +6,6 @@ import com.waether.app.R
 import com.waether.app.core.ContentViewId
 
 @ContentViewId(R.layout.activity_main)
-class MainActivity : AppCompatActivity()
+class MainActivity : AppCompatActivity(){
+
+}

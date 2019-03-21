@@ -5,6 +5,13 @@ import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.TypeConverters
 import com.weather.entities.City
 import com.weather.entities.FavoriteCityId
+import com.weather.usecases.applicationLiveData
+import com.weather.usecases.getApplication
+
+
+val weatherDatabase : WeatherDatabase by lazy {
+    initializeDatabase(applicationLiveData.getApplication())
+}
 
 @Database(
     entities = [City::class, FavoriteCityId::class],
