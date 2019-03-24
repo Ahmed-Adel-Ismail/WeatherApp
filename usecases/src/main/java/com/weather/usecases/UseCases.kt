@@ -15,18 +15,22 @@ fun numberIncrementer(liveData: MutableLiveData<Int>, incrementBy: Int = 1) {
 // city name must not be null
 // if all is OK, trigger search
 
-fun searchCityByName(
-    cityName: String?,
-    searching: MutableLiveData<Boolean>,
-    result: MutableLiveData<List<City>>,
-    repository: CitiesRepository = citiesRepository
+typealias CitiesResult = MutableLiveData<List<City>>
+
+
+class SearchCityByNameUseCase(
+    private val searching: MutableLiveData<Boolean>,
+    private val result: CitiesResult,
+    private val repository: CitiesRepository = citiesRepository
 ) {
-    cityName
-        ?.takeUnless { searching.value ?: false}
-        ?.also { searching.postValue(true) }
-        ?.let { repository.searchCitiesByName(it) }
-        ?.also { result.postValue(it) }
-        ?.also { searching.postValue(false) }
+    fun invoke(cityName: String?) {
+        cityName
+            ?.takeUnless { searching.value ?: false }
+            ?.also { searching.postValue(true) }
+            ?.let { repository.searchCitiesByName(it) }
+            ?.also { result.postValue(it) }
+            ?.also { searching.postValue(false) }
+    }
 }
 
 

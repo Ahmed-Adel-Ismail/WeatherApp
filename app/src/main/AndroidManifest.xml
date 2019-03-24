@@ -10,7 +10,7 @@
             android:supportsRtl="true"
             android:name=".WeatherApplication"
             android:theme="@style/AppTheme">
-        <activity android:name=".features.home.MainActivity"/>
+        <activity android:name=".features.home.HomeActivity"/>
 
         <activity android:name=".features.randomizer.RandomizerActivity">
             <intent-filter>
