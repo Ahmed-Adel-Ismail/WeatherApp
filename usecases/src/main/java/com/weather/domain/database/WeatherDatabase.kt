@@ -1,12 +1,12 @@
-package com.weather.usecases.database
+package com.weather.domain.database
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.TypeConverters
 import com.weather.entities.City
 import com.weather.entities.FavoriteCityId
-import com.weather.usecases.applicationLiveData
-import com.weather.usecases.getApplication
+import com.weather.domain.applicationLiveData
+import com.weather.domain.getApplication
 
 
 val weatherDatabase by lazy {

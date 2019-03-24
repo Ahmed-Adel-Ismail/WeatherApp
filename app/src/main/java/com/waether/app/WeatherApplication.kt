@@ -2,7 +2,7 @@ package com.waether.app
 
 import android.app.Application
 import com.waether.app.core.activitiesLifecycleCallbacks
-import com.weather.usecases.Domain
+import com.weather.domain.Domain
 
 class WeatherApplication : Application(){
 

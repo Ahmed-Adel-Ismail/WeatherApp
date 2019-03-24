@@ -1,37 +1,13 @@
-package com.weather.usecases
+package com.weather.domain.usecases
 
 import android.arch.lifecycle.MutableLiveData
-import com.weather.entities.City
-import com.weather.usecases.reporsitories.CitiesRepository
-import com.weather.usecases.reporsitories.citiesRepository
 
 fun numberIncrementer(liveData: MutableLiveData<Int>, incrementBy: Int = 1) {
     val oldValue = liveData.value ?: 0
     liveData.postValue(oldValue + incrementBy)
 }
 
-// usecase 1 : search city by name
-// if is searching, then do not trigger action
-// city name must not be null
-// if all is OK, trigger search
 
-typealias CitiesResult = MutableLiveData<List<City>>
-
-
-class SearchCityByNameUseCase(
-    private val searching: MutableLiveData<Boolean>,
-    private val result: CitiesResult,
-    private val repository: CitiesRepository = citiesRepository
-) {
-    fun invoke(cityName: String?) {
-        cityName
-            ?.takeUnless { searching.value ?: false }
-            ?.also { searching.postValue(true) }
-            ?.let { repository.searchCitiesByName(it) }
-            ?.also { result.postValue(it) }
-            ?.also { searching.postValue(false) }
-    }
-}
 
 
 // usecase 2 : retrieve favorite cities ids (longs)

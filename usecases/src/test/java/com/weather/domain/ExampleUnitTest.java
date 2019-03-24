@@ -1,4 +1,4 @@
-package com.weather.usecases;
+package com.weather.domain;
 
 import org.junit.Test;
 

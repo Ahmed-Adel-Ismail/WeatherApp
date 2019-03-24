@@ -1,4 +1,4 @@
-package com.weather.usecases.engine
+package com.weather.domain.engine
 
 import android.arch.lifecycle.MutableLiveData
 

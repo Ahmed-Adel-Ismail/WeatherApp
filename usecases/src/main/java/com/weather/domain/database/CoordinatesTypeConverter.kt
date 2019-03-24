@@ -1,4 +1,4 @@
-package com.weather.usecases.database
+package com.weather.domain.database
 
 import android.arch.persistence.room.TypeConverter
 import com.google.gson.Gson

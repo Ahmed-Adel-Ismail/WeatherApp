@@ -1,8 +1,7 @@
-package com.weather.usecases.reporsitories
+package com.weather.domain.reporsitories
 
 import com.weather.entities.City
 import com.weather.entities.FavoriteCityId
-import org.junit.Assert.*
 
 open class CitiesRepositoryMock : CitiesRepository {
 

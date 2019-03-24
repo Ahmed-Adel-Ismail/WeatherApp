@@ -1,9 +1,9 @@
-package com.weather.usecases.reporsitories
+package com.weather.domain.reporsitories
 
 import com.weather.entities.City
 import com.weather.entities.FavoriteCityId
-import com.weather.usecases.database.WeatherDatabase
-import com.weather.usecases.database.weatherDatabase
+import com.weather.domain.database.WeatherDatabase
+import com.weather.domain.database.weatherDatabase
 
 val citiesRepository: CitiesRepository by lazy { CitiesRepositoryImplementer() }
 
