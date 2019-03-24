@@ -10,17 +10,17 @@ import org.junit.Assert
 import org.junit.Rule
 import org.junit.Test
 
-class SearchCityByNameUseCaseTest {
-
-    @JvmField
-    @Rule
-    val instantExecutorRule = InstantTaskExecutorRule()
-
 // usecase 1 : search city by name
 // if is searching, then do not trigger action
 // city name must not be null
 // city name must not be blank
 // if all is OK, trigger search
+
+class SearchCityByNameUseCaseTest {
+
+    @JvmField
+    @Rule
+    val instantExecutorRule = InstantTaskExecutorRule()
 
     // if all is OK, trigger search
     @Test
@@ -85,6 +85,7 @@ class SearchCityByNameUseCaseTest {
 
     }
 
+    // city name must not be blank
     @Test
     fun `invoke with blank city name then do not update result`() {
 
@@ -108,7 +109,10 @@ class SearchCityByNameUseCaseTest {
 
 class CitiesRepositoryForSearchCityByName : CitiesRepositoryMock() {
 
-    val result = listOf(City(0L, "", "", null), City(0L, "", "", null))
+    val result = listOf(
+        City(0L, "", "", null),
+        City(0L, "", "", null)
+    )
 
     override fun searchCitiesByName(name: String): List<City> {
         return result
