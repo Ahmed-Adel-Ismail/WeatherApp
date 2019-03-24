@@ -15,22 +15,18 @@ fun numberIncrementer(liveData: MutableLiveData<Int>, incrementBy: Int = 1) {
 // city name must not be null
 // if all is OK, trigger search
 
-
-fun retrieveCitiesByName(
-    searchName: String?,
-    retrieving: MutableLiveData<Boolean>,
+fun searchCityByName(
+    cityName: String?,
+    searching: MutableLiveData<Boolean>,
     result: MutableLiveData<List<City>>,
     repository: CitiesRepository = citiesRepository
 ) {
-
-    searchName
-        ?.takeUnless { retrieving.value ?: false }
-        ?.takeUnless { it.isBlank() }
-        ?.also { retrieving.postValue(true) }
+    cityName
+        ?.takeUnless { searching.value ?: false}
+        ?.also { searching.postValue(true) }
         ?.let { repository.searchCitiesByName(it) }
         ?.also { result.postValue(it) }
-        ?.also { retrieving.postValue(false) }
-
+        ?.also { searching.postValue(false) }
 }
 
 
@@ -40,23 +36,39 @@ fun retrieveCitiesByName(
 // if favorites not empty, convert them to ids (longs)
 
 
-
-
 // usecase 3 : retrieve cities by Ids
 // if is retrieving, then do not trigger action
 // if all is Ok, trigger action
 
 
-fun retrieveCitiesByIds(
-    ids: List<Long>,
-    retrieving: MutableLiveData<Boolean>,
-    result: MutableLiveData<List<City>>,
-    repository: CitiesRepository = citiesRepository
-) {
+//fun retrieveCitiesByIds(
+//    ids: List<Long>,
+//    retrieving: MutableLiveData<Boolean>,
+//    result: MutableLiveData<List<City>>,
+//    repository: CitiesRepository = citiesRepository
+//) {
+//
+//    ids.takeUnless { retrieving.value ?: false }
+//        ?.also { retrieving.postValue(true) }
+//        ?.let { repository.retrieveCitiesByIds(it) }
+//        ?.also { result.postValue(it) }
+//        ?.also { retrieving.postValue(false) }
+//}
 
-    ids.takeUnless { retrieving.value ?: false }
-        ?.also { retrieving.postValue(true) }
-        ?.let { repository.retrieveCitiesByIds(it) }
-        ?.also { result.postValue(it) }
-        ?.also { retrieving.postValue(false) }
-}
+
+//fun retrieveCitiesByName(
+//    searchName: String?,
+//    retrieving: MutableLiveData<Boolean>,
+//    result: MutableLiveData<List<City>>,
+//    repository: CitiesRepository = citiesRepository
+//) {
+//
+//    searchName
+//        ?.takeUnless { retrieving.value ?: false }
+//        ?.takeUnless { it.isBlank() }
+//        ?.also { retrieving.postValue(true) }
+//        ?.let { repository.searchCitiesByName(it) }
+//        ?.also { result.postValue(it) }
+//        ?.also { retrieving.postValue(false) }
+//
+//}
