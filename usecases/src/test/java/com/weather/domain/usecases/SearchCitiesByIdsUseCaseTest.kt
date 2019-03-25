@@ -16,7 +16,7 @@ import org.junit.Test
 // if all is Ok, trigger action
 
 
-class SearchCitiesByIdsUseCaseTest{
+class SearchCitiesByIdsUseCaseTest {
 
     @JvmField
     @Rule
