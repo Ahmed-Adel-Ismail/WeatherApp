@@ -4,6 +4,7 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 import android.support.annotation.NonNull
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 @Entity
@@ -16,7 +17,7 @@ data class City(
     @field:SerializedName("name") val name: String?,
     @field:SerializedName("country") val country: String?,
     @field:SerializedName("coord") val coordinates: Coordinates?
-)
+) : Serializable
 
 data class ForecastsResponse(
     @field:SerializedName("city") val city: City?,
@@ -29,7 +30,7 @@ data class ForecastsResponse(
 data class Coordinates(
     @field:SerializedName("lat") val latitude: Double?,
     @field:SerializedName("lon") val longitude: Double?
-)
+) : Serializable
 
 
 

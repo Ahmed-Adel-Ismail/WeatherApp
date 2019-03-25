@@ -8,41 +8,39 @@ import android.support.v4.app.FragmentManager
 import android.widget.TextView
 import com.waether.app.R
 
-val activitiesLifecycleCallbacks by lazy {ActivitiesLifecycleCallbacks()}
+val activitiesLifecycleCallbacks by lazy { ActivitiesLifecycleCallbacks() }
 
-class ActivitiesLifecycleCallbacks : Application.ActivityLifecycleCallbacks{
+class ActivitiesLifecycleCallbacks : Application.ActivityLifecycleCallbacks {
 
     override fun onActivityPaused(activity: Activity?) {
-        
+
     }
 
     override fun onActivityResumed(activity: Activity?) {
-        
+
     }
 
     override fun onActivityStarted(activity: Activity?) {
-        
+
     }
 
     override fun onActivityDestroyed(activity: Activity?) {
-        
+
     }
 
     override fun onActivitySaveInstanceState(activity: Activity?, outState: Bundle?) {
-        
+
     }
 
     override fun onActivityStopped(activity: Activity?) {
-        
+
     }
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
-        val layoutId = activity.javaClass
+        activity.javaClass
             .getAnnotation(ContentViewId::class.java)
-            .layoutId
-
-        activity.setContentView(layoutId)
-
+            ?.layoutId
+            ?.also { activity.setContentView(it) }
     }
 
 }
