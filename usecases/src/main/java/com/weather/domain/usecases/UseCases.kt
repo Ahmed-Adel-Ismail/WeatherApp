@@ -16,9 +16,7 @@ fun numberIncrementer(liveData: MutableLiveData<Int>, incrementBy: Int = 1) {
 // if favorites not empty, convert them to ids (longs)
 
 
-// usecase 3 : retrieve cities by Ids
-// if is retrieving, then do not trigger action
-// if all is Ok, trigger action
+
 
 
 //fun retrieveCitiesByIds(

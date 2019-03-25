@@ -107,14 +107,13 @@ class SearchCityByNameUseCaseTest {
 
 }
 
+val fakeCitiesList = listOf(
+    City(0L, "", "", null),
+    City(0L, "", "", null)
+)
+
 class CitiesRepositoryForSearchCityByName : CitiesRepositoryMock() {
-
-    val result = listOf(
-        City(0L, "", "", null),
-        City(0L, "", "", null)
-    )
-
     override fun searchCitiesByName(name: String): List<City> {
-        return result
+        return fakeCitiesList
     }
 }
