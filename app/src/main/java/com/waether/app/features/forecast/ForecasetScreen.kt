@@ -19,7 +19,10 @@ class ForecastActivity : AppCompatActivity(), ForecastView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val city = intent.getSerializableExtra(EXTRA_CITY) as City
-        presenter.initializeView(city)
+        presenter.initializeCity(city)
+        lifecycle.addObserver(presenter)
+
+
 
 
         add_to_favorites_button.setOnClickListener {

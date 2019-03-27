@@ -1,5 +1,7 @@
 package com.waether.app.features.forecast
 
+import android.arch.lifecycle.DefaultLifecycleObserver
+import android.arch.lifecycle.LifecycleObserver
 import com.weather.entities.City
 import com.weather.entities.Forecast
 
@@ -12,8 +14,8 @@ interface ForecastView {
     fun drawAsNotFavoriteCity()
 }
 
-interface ForecastPresenter {
-    fun initializeView(city: City)
+interface ForecastPresenter : DefaultLifecycleObserver {
+    fun initializeCity(city: City)
     fun addCityToFavoritesClicked()
     fun removeCityFromFavorites()
 }

@@ -35,7 +35,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.searchProgress.observe(this, Observer {
+        viewModel.getProgressLiveData().observe(this, Observer {
             search_progress_bar.visibility = if (it!!) View.VISIBLE else View.GONE
         })
 

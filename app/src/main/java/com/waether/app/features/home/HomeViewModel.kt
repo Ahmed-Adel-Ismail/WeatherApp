@@ -1,15 +1,15 @@
 package com.waether.app.features.home
 
+import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import com.weather.entities.City
+import com.weather.domain.engine.toMutableLiveData
 import com.weather.domain.usecases.CitiesResult
 import com.weather.domain.usecases.SearchCityByNameUseCase
-import com.weather.domain.engine.toMutableLiveData
+import com.weather.entities.City
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 import java.io.Serializable
@@ -25,6 +25,7 @@ class HomeViewModel(
     )
 ) : ViewModel() {
 
+    fun getProgressLiveData() : LiveData<Boolean> = searchProgress
 
     fun onSearchButtonClicked(cityName: String?) {
         Observable.fromCallable { searchCityByName(cityName) }
