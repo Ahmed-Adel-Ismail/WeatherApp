@@ -36,7 +36,7 @@ class ForecastPresenterImplementerTest{
         val presenter = ForecastPresenterImplementer(view)
 
         // Act
-        presenter.initializeView(City(0,"","",null))
+        presenter.initializeCity(City(0,"","",null))
 
         // Assert
         Assert.assertTrue(result)
